@@ -33,3 +33,4 @@ wp-cli.local.yml
 # Debug
 debug.log
 web/app/themes/.DS_Store
+.DS_Store
