@@ -140,10 +140,12 @@ class ThreeCardsSection extends Block
      */
     public $example = [
         'title' => 'Pricing that grows with you',
-        'description' => 'Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.',
+        'description' => 'Choose an affordable plan thats packed with the best features for engaging your audience, creating customer loyalty, and driving sales.',
+        'subtitle' => 'Pricing that grows with you',
         'cards' => [
             [
                 'title' => 'Freelancer',
+                'subtitle' => 'The essentials',
                 'description' => 'The essentials to provide your best work for clients.',
                 'button_text' => 'Buy plan',
                 'button_url' => '#',
@@ -153,6 +155,7 @@ class ThreeCardsSection extends Block
             ],
             [
                 'title' => 'Freelancer',
+                'subtitle' => 'The essentials',
                 'description' => 'The essentials to provide your best work for clients.',
                 'button_text' => 'Buy plan',
                 'button_url' => '#',
@@ -162,6 +165,7 @@ class ThreeCardsSection extends Block
             ],
             [
                 'title' => 'Freelancer',
+                'subtitle' => 'The essentials',
                 'description' => 'The essentials to provide your best work for clients.',
                 'button_text' => 'Buy plan',
                 'button_url' => '#',
@@ -189,10 +193,25 @@ class ThreeCardsSection extends Block
     {
         $data = [];
 
-        foreach ($this->fields() as $field) {
-            $value = get_field($field);
-            if ($value) {
-                $data[$field] = $value;
+        $fields = [
+            'title',
+            'description',
+            'cards',
+        ];
+
+        foreach ($fields as $field) {
+            if ($field === 'cards') {
+                $data[$field] = $this->cards();
+                if ($this->preview && empty($data[$field]) && isset($this->example[$field])) {
+                    $data[$field] = $this->example[$field];
+                }
+            } else {
+                $value = get_field($field);
+                if ($this->preview && empty($value) && isset($this->example[$field])) {
+                    $data[$field] = $this->example[$field];
+                } else {
+                    $data[$field] = $value;
+                }
             }
         }
 
@@ -209,28 +228,32 @@ class ThreeCardsSection extends Block
         $fields
             ->addText('title')
             ->addText('description')
-            ->addRepeater('cards')
+            ->addRepeater('cards', [
+                'layout' => 'block',
+                'max' => 3
+            ])
             ->addText('title')
+            ->addText('subtitle')
             ->addText('description')
+            ->addRepeater('items')
+            ->addText('item')
+            ->endRepeater()
             ->addText('button_text')
             ->addUrl('button_url')
-            ->addText('button_target')
-            ->addText('button_rel')
-            ->addText('button_class')
             ->endRepeater();
 
         return $fields->build();
     }
 
     /**
-     * Retrieve the items.
+     * Retrieve the cards.
      *
      * @return array
      */
-    // public function items()
-    // {
-    //     return get_field('items') ?: $this->example['items'];
-    // }
+    public function cards()
+    {
+        return get_field('cards') ?: $this->example['cards'];
+    }
 
     /**
      * Assets enqueued with 'enqueue_block_assets' when rendering the block.
