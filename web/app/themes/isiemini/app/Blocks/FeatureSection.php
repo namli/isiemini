@@ -5,21 +5,21 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class HeroSection extends Block
+class FeatureSection extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Hero Section';
+    public $name = 'Feature Section';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'Hero section with image on right';
+    public $description = 'A beautiful Feature Section block.';
 
     /**
      * The block category.
@@ -116,7 +116,7 @@ class HeroSection extends Block
         'multiple' => true,
         'jsx' => true,
         'color' => [
-            'background' => true,
+            'background' => false,
             'text' => false,
             'gradients' => false,
         ],
@@ -139,20 +139,13 @@ class HeroSection extends Block
      * @var array
      */
     public $example = [
-        'title' => 'Data to enrich your business',
-        'description' => 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.',
-        'button_text' => 'Get started',
-        'button_url' => '#',
-        'button_target' => '_self',
-        'button_rel' => 'nofollow',
-        'button_class' => 'bg-indigo-600 text-white',
-        'link_text' => 'Learn more',
-        'link_url' => '#',
-        'link_target' => '_self',
-        'link_rel' => 'nofollow',
-        'link_class' => 'text-gray-900',
-        'image' => 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2102&q=80',
-        'image_alt' => 'Hero image',
+        'title' => 'Feature Section',
+        'description' => 'A beautiful Feature Section block.',
+        'features' => [
+            ['title' => 'Feature one', 'description' => 'Feature one description', 'icon' => 'IMAGE', 'link_text' => 'Feature one link', 'link_url' => 'Feature one link url', 'link_target' => '_blank', 'link_rel' => 'noopener noreferrer'],
+            ['title' => 'Feature two', 'description' => 'Feature two description', 'icon' => 'IMAGE', 'link_text' => 'Feature two link', 'link_url' => 'Feature two link url', 'link_target' => '_blank', 'link_rel' => 'noopener noreferrer'],
+            ['title' => 'Feature three', 'description' => 'Feature three description', 'icon' => 'IMAGE', 'link_text' => 'Feature three link', 'link_url' => 'Feature three link url', 'link_target' => '_blank', 'link_rel' => 'noopener noreferrer'],
+        ],
     ];
 
     /**
@@ -162,7 +155,7 @@ class HeroSection extends Block
      */
     // public $template = [
     //     'core/heading' => ['placeholder' => 'Hello World'],
-    //     'core/paragraph' => ['placeholder' => 'Welcome to the Hero Section block.'],
+    //     'core/paragraph' => ['placeholder' => 'Welcome to the Feature Section block.'],
     // ];
 
     /**
@@ -172,37 +165,25 @@ class HeroSection extends Block
     {
         $data = [];
 
-        // Собираем все наши поля в один массив для удобства
         $fields = [
             'title',
             'description',
-            'button_text',
-            'button_url',
-            'button_target',
-            'button_rel',
-            'button_class',
-            'link_text',
-            'link_url',
-            'link_target',
-            'link_rel',
-            'link_class',
-            'image',
-            'image_alt'
+            'features',
         ];
 
         foreach ($fields as $field) {
-            // Получаем значение поля из базы данных
-            $value = get_field($field);
-
-            // Главная логика:
-            // Если мы в превью редактора И значение поля пустое...
-            if ($this->preview && empty($value) && isset($this->example[$field])) {
-                // ...тогда берем значение из массива $this->example
-                $data[$field] = $this->example[$field];
+            if ($field === 'features') {
+                $data[$field] = $this->features();
+                if ($this->preview && empty($data[$field]) && isset($this->example[$field])) {
+                    $data[$field] = $this->example[$field];
+                }
             } else {
-                // ...в противном случае (на живом сайте или если поле заполнено)
-                // берем реальное значение (даже если оно пустое)
-                $data[$field] = $value;
+                $value = get_field($field);
+                if ($this->preview && empty($value) && isset($this->example[$field])) {
+                    $data[$field] = $this->example[$field];
+                } else {
+                    $data[$field] = $value;
+                }
             }
         }
 
@@ -214,29 +195,39 @@ class HeroSection extends Block
      */
     public function fields(): array
     {
-        $fields = Builder::make('hero_section');
+
+        $fields = Builder::make('feature_section');
 
         $fields
             ->addText('title')
             ->addText('description')
-            ->addText('button_text')
-            ->addUrl('button_url')
-            ->addText('button_target')
-            ->addText('button_rel')
-            ->addText('button_class')
+            ->addRepeater('features', [
+                'layout' => 'block',
+            ])
+            ->addText('title')
+            ->addText('description')
             ->addText('link_text')
             ->addUrl('link_url')
-            ->addText('link_target')
-            ->addText('link_rel')
-            ->addText('link_class')
-            ->addImage('image', [
-                'return_format' => 'url',
+            ->addSelect('link_target', ['choices' => ['', '_blank', '_self', '_parent', '_top']])
+            ->addSelect('link_rel', ['choices' => ['', 'noopener noreferrer', 'nofollow', 'noreferrer']])
+            ->addField('icon', 'svg_icon_picker', [
+                'label'         => 'Icon',
+                'return_format' => 'icon', // or 'icon'
             ])
-            ->addText('image_alt');
+            ->endRepeater();
 
         return $fields->build();
     }
 
+    /**
+     * Retrieve the features.
+     *
+     * @return array
+     */
+    public function features()
+    {
+        return get_field('features') ?: $this->example['features'];
+    }
 
     /**
      * Assets enqueued with 'enqueue_block_assets' when rendering the block.

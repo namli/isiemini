@@ -19,9 +19,10 @@ This file helps Gemini understand the project's conventions, tools, and architec
   - Example: `app/Blocks/PromoBox/`
 - **Autoloading:** Blocks are automatically registered by location. No manual registration is needed.
 - **Custom Category:** All custom blocks should be assigned to the **"IsiEmini Blocks"** category for easy identification in the editor.
-  - The category slug is `isiemini`.
-  - Set this in the block's PHP file: `public $category = 'isiemini';`
+  - The category slug is `iesemini-theme`.
+  - Set this in the block's PHP file: `public $category = 'iesemini-theme';`
 - **Create custom block** to create new block we **use ddev wp acorn acf:block BlockName**
+- **Плагины WordPress** — всегда в корень (Bedrock). **Библиотеки для темы** — в тему (Sage).
 
 ### Styling
 
