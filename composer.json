@@ -48,7 +48,8 @@
   "require-dev": {
     "roave/security-advisories": "dev-latest",
     "laravel/pint": "^1.18",
-    "deployer/deployer": "^7.5"
+    "deployer/deployer": "^7.5",
+    "deployphp/recipes": "^6.2"
   },
   "config": {
     "optimize-autoloader": true,
