@@ -21,3 +21,14 @@ Bedrock is a WordPress boilerplate for developers that want to manage their proj
 ## Getting Started
 
 See the [Bedrock installation documentation](https://roots.io/bedrock/docs/installation/).
+
+
+## Command to create Block
+inside isiemini.com/www/web/app/themes/isiemini
+`ddev wp acorn acf:block ThreeCardsSection`
+
+## command to install php dependecies
+`ddev composer require log1x/acf-composer` 
+
+## command to lunch dev for theme 
+`npm run dev`

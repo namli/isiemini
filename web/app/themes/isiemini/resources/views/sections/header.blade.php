@@ -26,7 +26,7 @@
         @endif
       </div>
       <div class="shrink-0">
-        <a class="btn" href="#">
+        <a class="btn-secondary" href="#">
           Записаться на консультацию
         </a>
       </div>

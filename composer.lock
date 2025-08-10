@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "915c3ced9d00d6365b3b38213b52505d",
+    "content-hash": "76b9eec7548c67b960cf30514426ffcd",
     "packages": [
         {
             "name": "composer/installers",
@@ -696,6 +696,66 @@
             "time": "2018-08-10T14:18:38+00:00"
         },
         {
+            "name": "smithfield-studio/acf-svg-icon-picker",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smithfield-studio/acf-svg-icon-picker.git",
+                "reference": "79ef5b0260180eda9f9129c235de6959aafca48e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smithfield-studio/acf-svg-icon-picker/zipball/79ef5b0260180eda9f9129c235de6959aafca48e",
+                "reference": "79ef5b0260180eda9f9129c235de6959aafca48e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "10up/phpcs-composer": "^3.0",
+                "php-stubs/acf-pro-stubs": "^6.0",
+                "phpcompatibility/php-compatibility": "^9",
+                "phpstan/phpstan": "^1.7",
+                "phpunit/phpunit": "^9.0",
+                "szepeviktor/phpstan-wordpress": "^1.1",
+                "wp-coding-standards/wpcs": "^3.1",
+                "wpackagist-plugin/advanced-custom-fields": "^6.0",
+                "yoast/phpunit-polyfills": "^3.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Sheppard",
+                    "email": "mike@smithfield.studio",
+                    "homepage": "https://smithfield.studio"
+                },
+                {
+                    "name": "Erik van der Bas",
+                    "email": "erik@basedonline.nl",
+                    "homepage": "https://basedonline.nl"
+                },
+                {
+                    "name": "houke"
+                }
+            ],
+            "description": "Add ACF field for selecting SVG icons.",
+            "keywords": [
+                "acf",
+                "field",
+                "icon",
+                "picker",
+                "svg",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/smithfield-studio/acf-svg-icon-picker/issues",
+                "source": "https://github.com/smithfield-studio/acf-svg-icon-picker"
+            },
+            "time": "2025-04-15T17:56:17+00:00"
+        },
+        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.30.0",
             "source": {
@@ -1145,6 +1205,65 @@
                 }
             ],
             "time": "2025-02-19T16:45:27+00:00"
+        },
+        {
+            "name": "deployphp/recipes",
+            "version": "6.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deployphp/recipes.git",
+                "reference": "4c2470771249fbff55eb56429c29d74590768fa0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deployphp/recipes/zipball/4c2470771249fbff55eb56429c29d74590768fa0",
+                "reference": "4c2470771249fbff55eb56429c29d74590768fa0",
+                "shasum": ""
+            },
+            "replace": {
+                "deployer/recipes": "self.version"
+            },
+            "require-dev": {
+                "deployer/deployer": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "autoload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Medvedev",
+                    "email": "anton@medv.io"
+                }
+            ],
+            "description": "3rd party deployer recipes",
+            "homepage": "https://github.com/deployphp/recipes",
+            "keywords": [
+                "cachetool",
+                "cloudflare",
+                "deploy",
+                "deployer",
+                "deployment",
+                "hipchat",
+                "newrelic",
+                "rabbit",
+                "recipes",
+                "sentry",
+                "slack",
+                "yarn"
+            ],
+            "support": {
+                "issues": "https://github.com/deployphp/recipes/issues",
+                "source": "https://github.com/deployphp/recipes"
+            },
+            "abandoned": true,
+            "time": "2019-01-17T06:03:27+00:00"
         },
         {
             "name": "laravel/pint",

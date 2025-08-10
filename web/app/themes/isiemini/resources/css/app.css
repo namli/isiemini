@@ -1,11 +1,48 @@
 @import "tailwindcss" theme(static);
 @source "../views/";
 @source "../../app/";
+@source "../../app/Blocks/";
 
+@theme {
+  --color-primary: #786c6c;
+  --color-primary-dark: #4d4647;
+  --color-primary-light: #c7c1c1;
+  --color-secondary: #e85454;
+  --color-secondary-dark: #7a2222;
+  --color-secondary-light: #fccccc;
+
+  --color-spicy-pink-50: #f4f2f2;
+  --color-spicy-pink-100: #e2e0df;
+  --color-spicy-pink-200: #c7c1c1;
+  --color-spicy-pink-300: #a79d9d;
+  --color-spicy-pink-400: #8e8181;
+  --color-spicy-pink-500: #786c6c;
+  --color-spicy-pink-600: #6d6162;
+  --color-spicy-pink-700: #585051;
+  --color-spicy-pink-800: #4d4647;
+  --color-spicy-pink-900: #443f41;
+  --color-spicy-pink-950: #262223;
+
+  --color-roman-50: #fdf3f3;
+  --color-roman-100: #fde3e3;
+  --color-roman-200: #fccccc;
+  --color-roman-300: #f8a9a9;
+  --color-roman-400: #f27777;
+  --color-roman-500: #e85454;
+  --color-roman-600: #d32f2f;
+  --color-roman-700: #b22323;
+  --color-roman-800: #932121;
+  --color-roman-900: #7a2222;
+  --color-roman-950: #420d0d;
+}
 a:where(:not(.wp-element-button)) {
   text-decoration: none;
 }
 
-.btn {
-  @apply relative inline-flex items-center gap-x-1.5 rounded-md bg-amber-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600;
+.btn-primary {
+  @apply rounded-md bg-primary px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-dark;
+}
+
+.btn-secondary {
+  @apply rounded-md bg-secondary px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-roman-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-roman-600;
 }

@@ -42,12 +42,14 @@
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "wpackagist-plugin/machete": "^5.0",
     "wpackagist-plugin/autodescription": "^5.1",
-    "wpackagist-plugin/acf-extended": "^0.9.1"
+    "wpackagist-plugin/acf-extended": "^0.9.1",
+    "smithfield-studio/acf-svg-icon-picker": "^4.2"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
     "laravel/pint": "^1.18",
-    "deployer/deployer": "^7.5"
+    "deployer/deployer": "^7.5",
+    "deployphp/recipes": "^6.2"
   },
   "config": {
     "optimize-autoloader": true,
