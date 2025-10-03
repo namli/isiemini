@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76b9eec7548c67b960cf30514426ffcd",
+    "content-hash": "ab96366ce37624f3f34dff3d394360e9",
     "packages": [
         {
             "name": "composer/installers",
@@ -1115,6 +1115,24 @@
             "homepage": "https://wordpress.org/plugins/autodescription/"
         },
         {
+            "name": "wpackagist-plugin/cyrlitera",
+            "version": "1.2.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cyrlitera/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cyrlitera.zip?timestamp=1758644275"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cyrlitera/"
+        },
+        {
             "name": "wpackagist-plugin/machete",
             "version": "5.0.1",
             "source": {
@@ -1757,6 +1775,6 @@
     "platform": {
         "php": ">=8.1"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

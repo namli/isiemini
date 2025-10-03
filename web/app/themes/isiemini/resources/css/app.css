@@ -39,6 +39,10 @@ a:where(:not(.wp-element-button)) {
   text-decoration: none;
 }
 
+/* Alpine.js - hide elements until Alpine loads */
+[x-cloak] {
+  display: none !important;
+}
 .btn-primary {
   @apply rounded-md bg-primary px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-dark;
 }
