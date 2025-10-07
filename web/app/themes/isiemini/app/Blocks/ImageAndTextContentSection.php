@@ -144,6 +144,7 @@ class ImageAndTextContentSection extends Block
         'content' => 'A beautiful Image And Text Content Section block.',
         'image' => 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2102&q=80',
         'image_alt' => 'Image Alt',
+        'image_position' => 'left',
     ];
 
     /**
@@ -169,6 +170,7 @@ class ImageAndTextContentSection extends Block
             'content',
             'image',
             'image_alt',
+            'image_position',
         ];
 
         foreach ($fields as $field) {
@@ -202,7 +204,18 @@ class ImageAndTextContentSection extends Block
             ->addImage('image', [
                 'return_format' => 'url',
             ])
-            ->addText('image_alt');
+            ->addText('image_alt')
+            ->addSelect('image_position', [
+                'label' => 'Image Position',
+                'instructions' => 'Choose where to display the image',
+                'choices' => [
+                    'left' => 'Left',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
+                'ui' => 1,
+                'return_format' => 'value',
+            ]);
 
         return $fields->build();
     }
