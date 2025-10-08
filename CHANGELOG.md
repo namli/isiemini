@@ -9,23 +9,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Добавлен блок `TitleSubtitleText` с полями: title, subtitle, text (WYSIWYG), button (опционально)
+- Добавлено поле `alignment` (select) в блок `TitleSubtitleText` для выбора выравнивания контента (Left / Center / Right)
 - Добавлено поле `image_position` (select) в блок `ImageAndTextContentSection` для выбора позиции изображения
 - Добавлена возможность размещать изображение слева или справа от текстового контента в блоке
 
 ### Changed
 
+- Блок `TitleSubtitleText`: все поля опциональны, кнопка отображается только при заполнении `button_text`
+- Блок `TitleSubtitleText`: поле `text` использует WYSIWYG редактор с базовым toolbar и без media buttons
+- Блок `TitleSubtitleText`: добавлена динамическая логика выравнивания (text-left/center/right, justify-start/center/end)
+- Обновлен Blade шаблон `title-subtitle-text.blade.php`: использует `match()` для определения CSS классов выравнивания
 - Обновлен Blade шаблон `image-and-text-content-section.blade.php`: добавлена динамическая логика для позиционирования изображения на основе выбранного значения
 - Обновлен метод `fields()` в `ImageAndTextContentSection.php`: добавлено поле select с опциями "Left" и "Right"
 - Обновлен метод `with()` в `ImageAndTextContentSection.php`: добавлена передача значения `image_position` в шаблон
 - Обновлен массив `$example` в `ImageAndTextContentSection.php`: добавлено значение по умолчанию для preview
 
+### Fixed
+
+- Исправлена проблема отображения кнопки в preview блока `TitleSubtitleText` когда значения не указаны (убраны значения кнопки из массива `$example`)
+
 ### Technical Details
 
 - **Files modified**:
+  - `web/app/themes/isiemini/app/Blocks/TitleSubtitleText.php`
+  - `web/app/themes/isiemini/resources/views/blocks/title-subtitle-text.blade.php`
   - `web/app/themes/isiemini/app/Blocks/ImageAndTextContentSection.php`
   - `web/app/themes/isiemini/resources/views/blocks/image-and-text-content-section.blade.php`
-- **Field configuration**: Select field с UI=1, default_value='left', choices=['left', 'right']
-- **CSS classes**: Динамические Tailwind классы для адаптивного позиционирования (xl:left-1/2, xl:right-1/2, lg:ml-8, lg:mr-8)
+- **TitleSubtitleText**: Category='iesemini-theme', supports=[mode, multiple, jsx, background]
+- **TitleSubtitleText alignment**: Select field с default_value='center', choices=['left', 'center', 'right']
+- **TitleSubtitleText text field**: WYSIWYG с tabs=['text', 'visual'], toolbar='basic', media_buttons=false
+- **ImageAndTextContentSection**: Select field с UI=1, default_value='left', choices=['left', 'right']
+- **CSS classes**: Динамические Tailwind классы для адаптивного позиционирования
 
 ## [0.0.1] - 2025-10-03
 
