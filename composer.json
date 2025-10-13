@@ -44,7 +44,8 @@
     "wpackagist-plugin/autodescription": "^5.1",
     "wpackagist-plugin/acf-extended": "^0.9.1",
     "smithfield-studio/acf-svg-icon-picker": "^4.2",
-    "wpackagist-plugin/cyrlitera": "^1.2"
+    "wpackagist-plugin/cyrlitera": "^1.2",
+    "wpackagist-plugin/forminator": "^1.47"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

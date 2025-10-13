@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab96366ce37624f3f34dff3d394360e9",
+    "content-hash": "c25a18b5e3044934d21d36d28b029c7a",
     "packages": [
         {
             "name": "composer/installers",
@@ -1131,6 +1131,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/cyrlitera/"
+        },
+        {
+            "name": "wpackagist-plugin/forminator",
+            "version": "1.47.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/forminator/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/forminator.zip?timestamp=1760030859"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/forminator/"
         },
         {
             "name": "wpackagist-plugin/machete",

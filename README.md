@@ -21,6 +21,7 @@ inside isiemini.com/www/web/app/themes/isiemini
 ## command to install php dependecies
 `ddev composer require log1x/acf-composer` 
 
+
 ## command to lunch dev for theme 
 `npm run dev`
 

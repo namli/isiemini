@@ -25,24 +25,24 @@
 <div {{ $attributes }}>
   @endunless
 
-  <div class="bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="py-24 sm:py-32">
+    <div class="container mx-auto px-6 lg:px-8">
       <div class="mx-auto max-w-2xl {{ $containerAlignClass }}">
         @if ($subtitle)
-        <p class="text-base/7 font-semibold text-indigo-600 {{ $textAlignClass }}">{{ $subtitle }}</p>
+        <p class="text-base/7 font-semibold text-primary {{ $textAlignClass }}">{{ $subtitle }}</p>
         @endif
         @if ($title)
         <h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance {{ $textAlignClass }}">{{ $title }}</h2>
         @endif
         @if ($text)
-        <p class="mt-6 text-lg/8 text-gray-600 {{ $textAlignClass }}">{{ $text }}</p>
+        <p class="mt-6 text-lg/8 text-gray-600 {{ $textAlignClass }}">{!! $text !!}</p>
         @endif
         @if ($button_text)
         <div class="mt-10 flex items-center {{ $flexAlignClass }} gap-x-6">
           <a href="{{ $button_url }}" 
              target="{{ $button_target }}" 
              rel="{{ $button_rel }}"
-             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+             class="btn-primary">
             {{ $button_text }}
           </a>
         </div>

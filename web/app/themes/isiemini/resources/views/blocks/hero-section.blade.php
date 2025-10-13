@@ -2,8 +2,8 @@
 <div {{ $attributes }}>
   @endunless
 
-  <div class="relative container mx-auto bg-white">
-    <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+  <div class="relative container mx-auto">
+    <div class="mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
       <div class="px-6 pt-10 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-40 lg:pb-48 xl:col-span-6">
         <div class="mx-auto max-w-lg lg:mx-0">
           @if ($title)
@@ -14,7 +14,7 @@
           @endif
           <div class="mt-10 flex items-center gap-x-6">
             @if ($button_text)
-            <a href="{{ $button_url }}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{ $button_text }}</a>
+            <a href="{{ $button_url }}" class="btn-primary">{{ $button_text }}</a>
             @endif
             @if ($link_text)
             <a href="{{ $link_url }}" class="text-sm/6 font-semibold text-gray-900">{{ $link_text }} <span aria-hidden="true">→</span></a>

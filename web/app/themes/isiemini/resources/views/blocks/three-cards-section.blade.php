@@ -2,16 +2,14 @@
 <div {{ $attributes }}>
   @endunless
 
-  <form class="group/tiers bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl text-center">
+  <div class="group/tiers py-24 sm:py-32">
+      <div class="mx-auto container max-w-4xl text-center">
         <p class="mt-2 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl">{{ $title }}</p>
         @if ($description)
         <p class="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-600 sm:text-xl/8">{{ $description }}</p>
         @endif
       </div>
-      <p class="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-600 sm:text-xl/8">{{ $description }}</p>
-      <div class="mt-16 flex justify-center">
+      <div class="mt-16 flex justify-center container mx-auto">
         <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           @foreach ($cards as $card)
           <div class="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-featured:ring-2 data-featured:ring-indigo-600 xl:p-10">
@@ -41,7 +39,7 @@
           @endforeach
         </div>
       </div>
-  </form>
+  </div>
 
 
   @unless ($block->preview)

@@ -15,8 +15,11 @@ set('keep_releases', 5);
 host('production')->setHostname('vetratoria.isiemini');
 
 // Shared / Writable (override defaults from wordpress recipe)
-set('shared_files', ['.env']);
-set('shared_dirs', ['web/app/uploads']);
+set('shared_files', ['.env', 'web/.htaccess']);
+set('shared_dirs', [
+    'web/app/uploads',
+    'web/app/plugins/advanced-custom-fields-pro'
+]);
 set('writable_dirs', ['web/app/cache', 'web/app/uploads']);
 set('writable_mode', 'chmod');
 set('writable_chmod_mode', '0775');

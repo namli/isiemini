@@ -2,8 +2,8 @@
 <div {{ $attributes }}>
 @endunless
 
-<div class="relative bg-white">
-  <div class="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 
+<div class="relative">
+  <div class="container mx-auto lg:flex lg:justify-between lg:px-8 
        {{ $image_position === 'right' ? 'xl:justify-start' : 'xl:justify-end' }}">
     
     {{-- Image Section --}}
